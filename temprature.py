@@ -2,12 +2,12 @@ import os
 import time
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
-
+#assigning the one wire devices to a variable
 prob1 = '/sys/bus/w1/devices/28-00000627c414/w1_slave'
 prob2 = '/sys/bus/w1/devices/28-000006282488/w1_slave'
 prob3 = '/sys/bus/w1/devices/28-000006285167/w1_slave'
 
-
+#reads data from sensor
 def temp_raw(sensor):
     f = open(sensor,'r')
     lines = f.readlines()
@@ -15,7 +15,7 @@ def temp_raw(sensor):
     return lines
 
 
-
+#gets data from temp_raw and converts it into something readable
 def read_temp(sensor):
     lines = temp_raw(sensor)
     while lines[0].strip()[-3:] != 'YES':
@@ -28,10 +28,9 @@ def read_temp(sensor):
         temp_c = float(temp_string)/ 1000.0
         temp_f = temp_c*9.0 /5.0 + 32.0
         return temp_f
-
+#returns data from each sensor as a list
 def sent_temp():
     temp = [read_temp(prob1),read_temp(prob2),read_temp(prob3)]
-    print temp
     return temp
 
 
