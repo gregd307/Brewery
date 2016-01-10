@@ -25,6 +25,7 @@ if __name__ == "__main__":
  app = QApplication(sys.argv)
  window = Window()
  #splash screen
+
  splash_pix = QPixmap('splash1.png')
  splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
  splash.setMask(splash_pix.mask())

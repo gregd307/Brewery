@@ -26,6 +26,7 @@ class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent = None):
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
+
 #defines thread get_temp
         self.get_temp = Get_Temp()
 #defines thread get_data
@@ -75,7 +76,7 @@ class Window(QMainWindow, Ui_MainWindow):
         
 #gets data from form and saves it to a file
     def save_application(self):
-        self.get_data()
+        self.save_data()
         text2 = []
         name = QtGui.QFileDialog.getSaveFileName()
         file = open(name,'w')        
@@ -102,7 +103,7 @@ class Window(QMainWindow, Ui_MainWindow):
         print ("loaded")
         
 #Gets data from Receipe form
-    def get_data(self):
+    def save_data(self):
         self.form_field = [self.Brewer_name_txt.text(),
         self.Brew_Date_txt.text(),
         self.Batch_size_txt.text(),
@@ -378,8 +379,10 @@ class Window(QMainWindow, Ui_MainWindow):
         
         if s3 == 0:
             self.get_data.start()
+           
         if s3 == 30:
             self.get_data.start()
+            
         if s3<59:
             s3 += 1
         else:
