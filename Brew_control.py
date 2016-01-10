@@ -378,10 +378,8 @@ class Window(QMainWindow, Ui_MainWindow):
         
         if s3 == 0:
             self.get_data.start()
-            s3 += 1
         if s3 == 30:
             self.get_data.start()
-            s3 += 1
         if s3<59:
             s3 += 1
         else:

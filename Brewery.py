@@ -7,6 +7,7 @@ os.system('sudo modprobe w1-therm')
 os.system('sh -c "echo 18 > /sys/class/gpio/export"')
 
 from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 from Brew_control import Window
 
 
