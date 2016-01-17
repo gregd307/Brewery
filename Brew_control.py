@@ -430,7 +430,7 @@ class Window(QMainWindow, Ui_MainWindow):
             else:
                 self.timer.stop()
         time1 = ("{0}:{1}:{2}".format(h,m,s))
-        Alarm(self)
+        self.Alarm()
         self.HLT_Timer_DISPLAY.setDigitCount(len(time1))
         self.HLT_Timer_DISPLAY.display(time1)
         
@@ -464,7 +464,7 @@ class Window(QMainWindow, Ui_MainWindow):
             else:
                 self.timer2.stop()
         time2 = ("{0}:{1}:{2}".format(h2,m2,s2))
-        Alarm(self)
+        self.Alarm()
         self.BOIL_TIMER_DISPLAY.setDigitCount(len(time2))
         self.BOIL_TIMER_DISPLAY.display(time2)
         
